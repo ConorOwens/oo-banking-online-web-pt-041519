@@ -15,7 +15,10 @@ class Transfer
   end
   
   def execute_transaction
-    @sender.deposit(-@amount)
-    @receiver.deposit(@amount)
+    if self.valid?
+      @sender.deposit(-@amount)
+      @receiver.deposit(@amount)
+    end
+  end
   
 end
